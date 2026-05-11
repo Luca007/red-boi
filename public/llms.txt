@@ -1,0 +1,105 @@
+# Red Boi Gastrobar — Cardápio Digital
+
+> Gastrobar com espetos na brasa, burgers, drinks autorais e combos. Feito com fogo, servido com paixão. Preços em R$, sujeitos a alteração sem aviso prévio.
+
+- Site: https://luca007.github.io/red-boi/
+- Instagram: @redboigastrobar
+- Idioma: pt-BR
+
+## Destaques (Destaque da Casa)
+
+- **Picanha na Chapa** — R$ 169,99 — *PREMIUM* — Com queijo cremoso, mandioca, batata frita e chimichurri defumado.
+- **Carne de Sol na Chapa** — R$ 139,99 — *PREMIUM* — Com mandioca, batata frita e manteiga de garrafa.
+
+## Espetos (Na Brasa)
+
+- **Tradicionais** — R$ 13,00 — Opções: Linguiça, Kafta, Frango, Coração de Frango.
+- **Premium** — R$ 16,00 — *PREMIUM* — Opções: Cupim, Picanha, Lombo Suíno.
+- **Premium Especial** — R$ 18,00 — *PREMIUM* — Opções: Carne de Sol, Panceta.
+- **Especiais** — R$ 18,00 — Opções: Medalhão de Frango, Queijo Coalho, Alcatra, Contra-Filé.
+- **Jantinha Completa** — R$ 15,00 — *MELHOR VALOR* — Arroz, Feijão (Tropeiro ou Caldo), Mandioca Cozida, Vinagrete e Farofa da Casa.
+
+## Burger (Clássico)
+
+- **RedBoi Burger** — Blend 160g, cheddar, cebola caramelizada, bacon, molho especial, picles e alface.
+  - Sem Fritas: R$ 30,00
+  - Com Fritas: R$ 36,00
+
+## Petiscos (Para Compartilhar)
+
+- **Batata Frita Tradicional** (450g) — R$ 23,99
+- **Batata Frita Especial** — R$ 29,99
+- **Batata Frita c/ Calabresa** — R$ 39,99
+
+## Acompanhamentos
+
+- **Vinagrete** — R$ 5,00
+- **Mandioca** — R$ 10,00
+- **Arroz Branco** — R$ 10,00
+- **Feijão Tropeiro** — R$ 12,00
+- **Feijão de Caldo** — R$ 8,00
+- **Farofa da Casa** — R$ 8,00
+
+## Cervejas (600ml)
+
+- **Amstel** — R$ 12,00
+- **Original** — R$ 13,00
+- **Heineken** — R$ 18,00 — *PREMIUM*
+- **Corona** — R$ 18,00 — *PREMIUM*
+
+## Drinks (600ml)
+
+- **Drink s/ Álcool** — R$ 23,99
+- **Caipirinha** — R$ 19,99 — *CLÁSSICO*
+- **Caipiroska** — R$ 23,99 — *CLÁSSICO*
+- **Mojito** — R$ 23,99 — *CLÁSSICO*
+- **Cozumel** — R$ 14,99 — *CLÁSSICO*
+- **Aperol Spritz** — R$ 25,00 — *PREMIUM*
+- **Negroni** — R$ 28,00 — *PREMIUM*
+- **Campari Garibaldi** — R$ 30,00 — *PREMIUM*
+- **Gin** — R$ 27,90 — *PREMIUM*
+- **Red Boi** — R$ 28,00 — *AUTORAL*
+- **Red Balena** — R$ 28,00 — *AUTORAL*
+- **Lagoa Azul** — R$ 25,90
+- **Sexy on The Beach** — R$ 25,90
+- **Pink Limenade** — R$ 30,00
+- **Energético Red Bull Tropical** — R$ 15,00
+- **Preparo Cozumel** — R$ 10,00
+
+## Bebidas & Sucos
+
+- **Refrigerantes** — R$ 7,99 — Coca-Cola, Guaraná, Fanta Laranja, Sprite, Schweppes (zero ou normal).
+- **Água Mineral (com ou sem gás)** — R$ 6,99
+- **Água de Coco** (200ml) — R$ 7,99
+- **Suco Lata** — R$ 7,99
+- **Sucos Naturais** — R$ 11,99 — *NATURAL* — Produção própria: Laranja, Limão, Morango, Maracujá, Goiaba, Abacaxi, Abacaxi com Hortelã.
+- **H2O / Limoneto** — R$ 10,00
+- **Red Bull** — R$ 14,99
+- **Chopp** — R$ 13,99
+
+## Doses
+
+- **Cachaça 51** — R$ 7,00
+- **Shot Limão** — R$ 7,00
+- **São Francisco** — R$ 8,00
+- **Alambique** — R$ 10,00
+- **Paratudo** — R$ 10,00
+- **Dose Fiu-Fiu** — R$ 18,00
+- **Dose Smirnoff** — R$ 20,00
+- **Campari** — R$ 20,00
+- **Dose Tekila** — R$ 25,00
+- **Dose Balena** — R$ 25,00
+- **Don Luiz** — R$ 25,00
+- **Whisky** — R$ 28,00
+
+## Combos
+
+> Cada combo inclui: 1 bebida + balde com gelo + 4 latas de energético.
+
+- **Balena** — R$ 140,00 — *PROMO*
+- **Absolut** — R$ 199,00
+- **Beefeater** — R$ 185,00
+- **Tanqueray** — R$ 230,00 — *TOP*
+- **Red Label** — R$ 185,00
+- **Old Par** — R$ 265,00
+- **Chivas** — R$ 240,00

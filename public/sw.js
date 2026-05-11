@@ -1,6 +1,6 @@
 /* Red Boi Gastrobar — minimal cache-first service worker */
-const VERSION = 'redboi-v1';
-const BASE = '/red-boi/';
+const VERSION = 'redboi-v2';
+const BASE = new URL('./', self.location).pathname;
 const APP_SHELL = [
   BASE,
   BASE + 'index.html',

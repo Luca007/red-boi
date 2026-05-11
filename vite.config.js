@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/red-boi/',
+  base: './',
   build: {
     target: 'es2018',
     cssCodeSplit: true,
