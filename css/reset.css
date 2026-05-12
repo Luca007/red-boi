@@ -10,8 +10,11 @@
 
 html {
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+  /* Ensure consistent text scaling across browsers */
+  -webkit-text-size-adjust: 100%; /* Safari, Chrome */
+  -moz-text-size-adjust: 100%;    /* Firefox */
+  -ms-text-size-adjust: 100%;     /* IE/Edge */
+  text-size-adjust: 100%;         /* Chrome 54+, Edge 79+, Samsung Internet 6.0+ */
 }
 
 body {

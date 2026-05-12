@@ -43,27 +43,31 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+async function handleFetch(req) {
+  const cached = await caches.match(req);
+  if (cached) return cached;
+
+  try {
+    const res = await fetch(req);
+    if (!res || res.status !== 200 || res.type !== 'basic') {
+      return res;
+    }
+
+    const copy = res.clone();
+    caches.open(VERSION).then((cache) => cache.put(req, copy));
+
+    return res;
+  } catch (err) {
+    if (req.mode === 'navigate') return caches.match(BASE + 'index.html');
+    return Response.error();
+  }
+}
+
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
 
-  event.respondWith(
-    caches.match(req).then((cached) => {
-      if (cached) return cached;
-      return fetch(req)
-        .then((res) => {
-          if (res && res.status === 200 && res.type === 'basic') {
-            const copy = res.clone();
-            caches.open(VERSION).then((cache) => cache.put(req, copy));
-          }
-          return res;
-        })
-        .catch(() => {
-          if (req.mode === 'navigate') return caches.match(BASE + 'index.html');
-          return Response.error();
-        });
-    })
-  );
+  event.respondWith(handleFetch(req));
 });

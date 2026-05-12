@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <!-- Progressive enhancement: Chrome/Safari/Edge tint the chrome UI; Firefox/Opera ignore it harmlessly. -->
-    <meta name="theme-color" content="#1C0A04" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F0DDB0" />
+    <meta name="color-scheme" content="dark light" />
     <meta name="description" content="Red Boi Gastrobar - Cardápio digital. Espetos na brasa, burgers, drinks e combos. Feito com fogo, servido com paixão." />
     <link rel="canonical" href="https://luca007.github.io/red-boi/" />
     <link rel="icon" type="image/png" href="./logo.png" />
@@ -26,73 +25,12 @@
 
     <title>Red Boi Gastrobar - Cardápio Digital</title>
 
-    <script>
-      (function () {
-        try {
-          var m = localStorage.getItem('redboi-theme') || 'system';
-          var d = m === 'dark' || (m === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
-          document.documentElement.dataset.theme = d ? 'dark' : 'light';
-        } catch (_) { document.documentElement.dataset.theme = 'dark'; }
-      })();
-    </script>
-
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      html { scroll-behavior: smooth; }
-      :root, :root[data-theme="dark"] {
-        --bg: #0E0704;
-        --header: #1C0A04;
-        --combo-gold: #D49A18;
-      }
-      :root[data-theme="light"] {
-        --bg: #F5E8CC;
-        --header: #F0DDB0;
-        --combo-gold: #8A5800;
-      }
-      body {
-        min-height: 100vh;
-        background: var(--bg);
-        font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        -webkit-font-smoothing: antialiased;
-      }
-      .app {
-        max-width: 430px;
-        margin: 0 auto;
-        min-height: 100vh;
-        background: var(--bg);
-      }
-      .spinner {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-        min-height: 100vh;
-        transition: opacity 0.25s ease;
-      }
-      .spinner--hidden { opacity: 0; pointer-events: none; }
-      .spinner__ring {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        border: 3px solid rgba(212, 154, 24, 0.18);
-        border-top-color: var(--combo-gold);
-        animation: spin 1s linear infinite;
-      }
-      .spinner__text {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 14px;
-        letter-spacing: 2px;
-        color: var(--combo-gold);
-        text-transform: uppercase;
-      }
-      @keyframes spin { to { transform: rotate(360deg); } }
-    </style>
+    <script src="./js/features/theme-init.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- fetchpriority is a hint Chrome/Edge/Safari honor for LCP; Firefox/Opera ignore it harmlessly. -->
-    <link rel="preload" as="image" href="./logo.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="./logo.png" />
 
     <link rel="modulepreload" href="./js/main.js" />
     <link rel="modulepreload" href="./js/menu-data.js" />

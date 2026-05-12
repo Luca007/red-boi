@@ -93,10 +93,11 @@
   padding: 8px 14px 10px;
   cursor: grab;
   overflow-x: auto;
-  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 .nav-strip:active { cursor: grabbing; }
-.nav-strip::-webkit-scrollbar { height: 0; }
+.nav-strip::-webkit-scrollbar { display: none; }
 
 /* ───── TAGLINE (italic quote under header) ───── */
 .quote {
