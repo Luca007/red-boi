@@ -1,78 +1,74 @@
-# Red Boi Gastrobar — Digital Menu
+# Red Boi Gastrobar — Cardápio Digital
 
-A fast, mobile-first digital menu for Red Boi Gastrobar. Built with Vite + React, deployed for free on GitHub Pages.
+Static digital menu for Red Boi Gastrobar. Pure HTML + CSS + ES Modules. No build, no `npm install`, no framework.
 
-## Stack
+## Live preview
 
-- Vite 5 + React 18 (JSX, no TypeScript)
-- Plain CSS + inline styles driven by CSS custom properties
-- Minimal service worker for offline / weak networks
-- No UI libraries, no CSS frameworks
+Production: https://luca007.github.io/red-boi/
 
-## Open it locally
+## Run locally
 
-> **Heads up:** opening `index.html` from the repo root with Live Server / a plain static server **will not work**. The browser cannot execute `.jsx` directly — only Vite (in `dev` mode) or the built `dist/` (after `npm run build`) can be served.
-
-Use one of these three options:
+Open `index.html` through any static server (browser security blocks ES modules over `file://`):
 
 ```bash
-# 1. Vite dev server with HMR (recommended for editing)
-npm install
-npm run dev
-# → http://localhost:5173/
+# Python (preinstalled almost everywhere)
+python3 -m http.server 4173
 
-# 2. Build + preview the production output
-npm run build
-npm run preview
-# → http://localhost:4173/
-
-# 3. Live Server (or any static server) on the built dist/
-npm run build
-# then "Open with Live Server" inside the dist/ folder, NOT the repo root
+# or with VS Code: right-click index.html → "Open with Live Server"
 ```
 
-Requires Node 18+.
+Then visit http://localhost:4173.
 
-## Deploy
+There is **nothing to install**. No `package.json`, no bundler. The browser loads the modules natively.
 
-Pushes to `main` trigger `.github/workflows/deploy.yml`, which:
+## Editing the menu
 
-1. Builds the Vite app
-2. Uploads `dist/` as a Pages artifact
-3. Deploys it via `actions/deploy-pages`
+All items live in `js/menu-data.js`. Each section has `id`, `label`, `icon`, `sub`, and an `items` array.
 
-Site URL: `https://<user>.github.io/red-boi/`
+- Add a price/badge/description by editing the item entry.
+- Add a whole section by appending a `{ id, label, icon, sub, items }` block.
+- If the new section should render as a one-line compact list (like *Cervejas*, *Doses*), add its `id` to `COMPACT_IDS` in the same file. Otherwise it renders as a full card.
 
-`base` is set to `./` so the same build works on GitHub Pages (`/red-boi/` subpath) and on any other static host or local preview without rebuilding.
+## Editing styles
 
-## AI & search accessibility
+CSS is split by concern under `css/`:
 
-- `public/robots.txt` — allows all crawlers, points to the sitemap
-- `public/sitemap.xml` — single canonical URL
-- `public/llms.txt` — full menu in Markdown ([llmstxt.org](https://llmstxt.org)) so LLMs can read prices and descriptions without executing JavaScript
+- `reset.css` — minimal browser reset.
+- `tokens.css` — 40 CSS custom properties per theme, in `:root[data-theme="dark"|"light"]`.
+- `layout.css` — `.app`, `.header`, `.nav-strip`, `.section`, `.footer`, spinner.
+- `components.css` — `.card`, `.compact-row`, `.badge*`, `.pill`, `.suggestion-form`, chips, variants.
+- `animations.css` — keyframes + `prefers-reduced-motion` overrides.
 
-## Structure
+To tweak the palette, change values in `tokens.css`. Never set colors inline in JS.
+
+## Project structure
 
 ```
-src/
-  main.jsx               ReactDOM bootstrap, SW registration
-  App.jsx                Top-level layout
-  data/menu.js           SECTIONS — full menu data
-  data/constants.js      RED, RED_DK, GOLD, COMPACT_IDS, fmt()
-  theme/themes.js        Dark + light CSS variable tokens
-  hooks/useTheme.js      dark / light / system cycle
-  hooks/useActiveSection.js  Scroll spy + nav auto-center
-  components/            Header, NavPills, Section, FullCard,
-                         CompactRow, Badge, SuggestionForm, Footer
-  styles/global.css      Keyframes, .pill, .theme-btn, scrollbar, reset
-
-public/
-  logo.png               App icon + header/footer logo
-  manifest.webmanifest   PWA manifest
-  sw.js                  Cache-first service worker (offline app-shell)
-  robots.txt             Crawler policy
-  sitemap.xml            Sitemap
-  llms.txt               Full menu in Markdown for LLMs
-  .nojekyll              Tells Pages not to run Jekyll
-  404.html               SPA fallback
+index.html              entry, includes critical CSS + anti-FOUC theme script
+css/                    5 stylesheets loaded in parallel
+js/
+  main.js               orchestrator
+  menu-data.js          SECTIONS, COMPACT_IDS, formatPrice
+  constants.js          timing constants, color literals
+  dom.js                el(), clearChildren(), on()
+  components/           pure render functions returning HTMLElement
+  features/             theme.js, scroll-spy.js, sw-register.js
+logo.png                ~56 KB, optimised
+manifest.webmanifest    PWA manifest
+sw.js                   cache-first service worker (VERSION = redboi-v3)
+404.html                GitHub Pages fallback → redirects to `/`
+robots.txt, sitemap.xml, llms.txt   SEO + AI crawlability
 ```
+
+## Deploy (GitHub Pages)
+
+1. Settings → Pages.
+2. Source: **Deploy from a branch**.
+3. Branch: `main`, folder `/ (root)`.
+4. Save. First deploy takes 1–2 minutes.
+
+No GitHub Actions workflow needed — Pages serves the repo root directly.
+
+## AI accessibility
+
+`llms.txt` summarises the menu in a structured form for AI assistants. `robots.txt` and `sitemap.xml` allow crawler indexing.

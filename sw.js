@@ -1,11 +1,32 @@
-/* Red Boi Gastrobar — minimal cache-first service worker */
-const VERSION = 'redboi-v2';
+/* RedBoi — cache-first service worker (app shell + runtime cache) */
+const VERSION = 'redboi-v3';
 const BASE = new URL('./', self.location).pathname;
 const APP_SHELL = [
   BASE,
   BASE + 'index.html',
-  BASE + 'logo.png',
   BASE + 'manifest.webmanifest',
+  BASE + 'logo.png',
+  BASE + 'css/reset.css',
+  BASE + 'css/tokens.css',
+  BASE + 'css/layout.css',
+  BASE + 'css/components.css',
+  BASE + 'css/animations.css',
+  BASE + 'js/main.js',
+  BASE + 'js/menu-data.js',
+  BASE + 'js/constants.js',
+  BASE + 'js/dom.js',
+  BASE + 'js/components/header.js',
+  BASE + 'js/components/nav-pills.js',
+  BASE + 'js/components/section.js',
+  BASE + 'js/components/full-card.js',
+  BASE + 'js/components/compact-row.js',
+  BASE + 'js/components/badge.js',
+  BASE + 'js/components/suggestion-form.js',
+  BASE + 'js/components/footer.js',
+  BASE + 'js/components/spinner.js',
+  BASE + 'js/features/theme.js',
+  BASE + 'js/features/scroll-spy.js',
+  BASE + 'js/features/sw-register.js',
 ];
 
 self.addEventListener('install', (event) => {

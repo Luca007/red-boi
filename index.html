@@ -6,30 +6,112 @@
     <meta name="theme-color" content="#1C0A04" />
     <meta name="description" content="Red Boi Gastrobar - Cardápio digital. Espetos na brasa, burgers, drinks e combos. Feito com fogo, servido com paixão." />
     <link rel="canonical" href="https://luca007.github.io/red-boi/" />
-    <link rel="icon" type="image/png" href="%BASE_URL%logo.png" />
-    <link rel="apple-touch-icon" href="%BASE_URL%logo.png" />
-    <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="./logo.png" />
+    <link rel="apple-touch-icon" href="./logo.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Red Boi Gastrobar - Cardápio Digital" />
     <meta property="og:description" content="Espetos na brasa, burgers, drinks e combos. Feito com fogo, servido com paixão." />
-    <meta property="og:image" content="%BASE_URL%logo.png" />
+    <meta property="og:image" content="./logo.png" />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://luca007.github.io/red-boi/" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Red Boi Gastrobar - Cardápio Digital" />
     <meta name="twitter:description" content="Espetos na brasa, burgers, drinks e combos." />
-    <meta name="twitter:image" content="%BASE_URL%logo.png" />
+    <meta name="twitter:image" content="./logo.png" />
+
+    <title>Red Boi Gastrobar - Cardápio Digital</title>
+
+    <script>
+      (function () {
+        try {
+          var m = localStorage.getItem('redboi-theme') || 'system';
+          var d = m === 'dark' || (m === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.dataset.theme = d ? 'dark' : 'light';
+        } catch (_) { document.documentElement.dataset.theme = 'dark'; }
+      })();
+    </script>
+
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      :root, :root[data-theme="dark"] {
+        --bg: #0E0704;
+        --header: #1C0A04;
+        --combo-gold: #D49A18;
+      }
+      :root[data-theme="light"] {
+        --bg: #F5E8CC;
+        --header: #F0DDB0;
+        --combo-gold: #8A5800;
+      }
+      body {
+        min-height: 100vh;
+        background: var(--bg);
+        font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .app {
+        max-width: 430px;
+        margin: 0 auto;
+        min-height: 100vh;
+        background: var(--bg);
+      }
+      .spinner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        min-height: 100vh;
+        transition: opacity 0.25s ease;
+      }
+      .spinner--hidden { opacity: 0; pointer-events: none; }
+      .spinner__ring {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 3px solid rgba(212, 154, 24, 0.18);
+        border-top-color: var(--combo-gold);
+        animation: spin 1s linear infinite;
+      }
+      .spinner__text {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: var(--combo-gold);
+        text-transform: uppercase;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="image" href="%BASE_URL%logo.png" fetchpriority="high" />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="./logo.png" fetchpriority="high" />
 
-    <title>Red Boi Gastrobar - Cardápio Digital</title>
+    <link rel="modulepreload" href="./js/main.js" />
+    <link rel="modulepreload" href="./js/menu-data.js" />
+    <link rel="modulepreload" href="./js/dom.js" />
+    <link rel="modulepreload" href="./js/features/theme.js" />
+    <link rel="modulepreload" href="./js/components/header.js" />
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/tokens.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+    <link rel="stylesheet" href="./css/animations.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="app" id="app">
+      <div class="spinner" id="spinner" role="status" aria-label="Carregando cardápio">
+        <div class="spinner__ring" aria-hidden="true"></div>
+        <p class="spinner__text">Carregando cardápio…</p>
+      </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>

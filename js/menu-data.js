@@ -1,3 +1,5 @@
+/* RedBoi — menu sections, compact section ids, price formatter */
+
 export const SECTIONS = [
   {
     id: 'destaques', label: 'Destaques', icon: '⭐', sub: 'Destaque da Casa',
@@ -121,3 +123,19 @@ export const SECTIONS = [
     ],
   },
 ];
+
+export const COMPACT_IDS = new Set([
+  'acompanhamentos',
+  'cervejas',
+  'drinks',
+  'bebidas',
+  'doses',
+  'combos',
+]);
+
+/**
+ * Formats a number as a Brazilian-style price (comma decimal, 2 fixed digits).
+ * @param {number} n
+ * @returns {string}
+ */
+export const formatPrice = (n) => n.toFixed(2).replace('.', ',');

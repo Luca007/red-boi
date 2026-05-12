@@ -1,0 +1,281 @@
+/* RedBoi — page layout, header, nav strip, sections, footer, spinner */
+
+.app {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--bg);
+  padding-bottom: 40px;
+  transition: background 0.3s;
+  position: relative;
+}
+
+/* ───── HEADER ───── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(180deg, var(--header) 0%, var(--bg) 100%);
+  transition: box-shadow 0.3s, background 0.3s;
+}
+.header--scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+}
+.header__inner {
+  padding: 12px 18px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__logo-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.header__logo-glow {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,134,10,0.2), transparent 70%);
+  position: absolute;
+  inset: -8px;
+  z-index: 0;
+}
+.header__logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 14px rgba(200, 40, 28, 0.42));
+}
+.header__tagline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--tagline);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.header__divider {
+  height: 1px;
+  margin: 0 18px;
+  background: linear-gradient(90deg, transparent, rgba(180,120,0,0.5), transparent);
+}
+.header__rule {
+  height: 2px;
+  background: linear-gradient(90deg, #C8281C 0%, #B87A00 100%);
+}
+
+.theme-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--nav-pill);
+  border: 1.5px solid var(--nav-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: transform 0.18s, background 0.2s;
+  z-index: 5;
+}
+.theme-btn:hover { transform: scale(1.12); }
+.theme-btn:active { transform: scale(0.94); }
+
+/* ───── NAV STRIP ───── */
+.nav-strip {
+  display: flex;
+  gap: 7px;
+  padding: 8px 14px 10px;
+  cursor: grab;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.nav-strip:active { cursor: grabbing; }
+.nav-strip::-webkit-scrollbar { height: 0; }
+
+/* ───── TAGLINE (italic quote under header) ───── */
+.quote {
+  text-align: center;
+  padding: 26px 20px 4px;
+}
+.quote__text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--tagline);
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+.quote__divider {
+  height: 1px;
+  margin: 12px auto 0;
+  max-width: 120px;
+  background: linear-gradient(90deg, transparent, rgba(180,120,0,0.4), transparent);
+}
+
+/* ───── SECTION ───── */
+.section {
+  padding-top: 24px;
+  padding-bottom: 8px;
+  scroll-margin-top: 138px;
+}
+.section__head {
+  margin: 0 14px 16px;
+}
+.section__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.section__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  flex-shrink: 0;
+  background: var(--sec-icon);
+  border: 1px solid var(--sec-bdr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+.section__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--title);
+  line-height: 1;
+}
+.section__sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--subtitle);
+  font-style: italic;
+  margin-top: 2px;
+}
+.section__rule {
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, var(--sec-line-a), var(--sec-line-b), transparent);
+}
+.section__list {
+  padding: 0 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ───── COMBO NOTE ───── */
+.combo-note {
+  margin: 0 14px 24px;
+  background: var(--combo-bg);
+  border: 1px dashed var(--combo-bdr);
+  border-radius: 14px;
+  padding: 14px 16px;
+  color: var(--combo-text);
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.7;
+}
+.combo-note__lead {
+  color: var(--combo-gold);
+  font-weight: 700;
+}
+
+/* ───── FOOTER ───── */
+.footer {
+  margin: 32px 0 0;
+  background: linear-gradient(180deg, var(--footer) 0%, var(--bg) 100%);
+  border-top: 1px solid rgba(180,120,0,0.2);
+  transition: background 0.3s;
+}
+.footer__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 20px 24px;
+}
+.footer__logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 6px 20px rgba(200,40,28,0.38));
+}
+.footer__handle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--foot-text);
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.footer__note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: var(--foot-muted);
+  line-height: 1.8;
+  text-align: center;
+}
+.footer__divider {
+  height: 1px;
+  margin: 0 18px;
+  background: linear-gradient(90deg, transparent, rgba(180,120,0,0.35), transparent);
+}
+.footer__form-block {
+  padding: 28px 18px 48px;
+}
+.footer__form-head {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.footer__form-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: var(--title);
+  margin-bottom: 6px;
+}
+.footer__form-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: var(--subtitle);
+  line-height: 1.65;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+/* ───── SPINNER ───── */
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 100vh;
+  transition: opacity 0.25s ease;
+}
+.spinner--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.spinner__ring {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid rgba(212, 154, 24, 0.18);
+  border-top-color: var(--combo-gold);
+  animation: spin 1s linear infinite;
+}
+.spinner__text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--combo-gold);
+  text-transform: uppercase;
+}
