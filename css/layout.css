@@ -94,7 +94,6 @@
   cursor: grab;
   overflow-x: auto;
   scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
 }
 .nav-strip:active { cursor: grabbing; }
 .nav-strip::-webkit-scrollbar { height: 0; }

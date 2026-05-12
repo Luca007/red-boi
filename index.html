@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <!-- Progressive enhancement: Chrome/Safari/Edge tint the chrome UI; Firefox/Opera ignore it harmlessly. -->
     <meta name="theme-color" content="#1C0A04" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F0DDB0" />
     <meta name="description" content="Red Boi Gastrobar - Cardápio digital. Espetos na brasa, burgers, drinks e combos. Feito com fogo, servido com paixão." />
     <link rel="canonical" href="https://luca007.github.io/red-boi/" />
     <link rel="icon" type="image/png" href="./logo.png" />
@@ -89,6 +91,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- fetchpriority is a hint Chrome/Edge/Safari honor for LCP; Firefox/Opera ignore it harmlessly. -->
     <link rel="preload" as="image" href="./logo.png" fetchpriority="high" />
 
     <link rel="modulepreload" href="./js/main.js" />
