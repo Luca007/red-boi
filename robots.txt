@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luca007.github.io/red-boi/sitemap.xml

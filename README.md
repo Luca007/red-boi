@@ -1,56 +1,74 @@
-# Red Boi Gastrobar — Digital Menu
+# Red Boi Gastrobar — Cardápio Digital
 
-A fast, mobile-first digital menu for Red Boi Gastrobar. Built with Vite + React, deployed for free on GitHub Pages.
+Static digital menu for Red Boi Gastrobar. Pure HTML + CSS + ES Modules. No build, no `npm install`, no framework.
 
-## Stack
+## Live preview
 
-- Vite 5 + React 18 (JSX, no TypeScript)
-- Plain CSS + inline styles driven by CSS custom properties
-- Minimal service worker for offline / weak networks
-- No UI libraries, no CSS frameworks
+Production: https://luca007.github.io/red-boi/
 
-## Develop
+## Run locally
+
+Open `index.html` through any static server (browser security blocks ES modules over `file://`):
 
 ```bash
-npm install
-npm run dev      # local dev server
-npm run build    # production build → dist/
-npm run preview  # preview the built dist/
+# Python (preinstalled almost everywhere)
+python3 -m http.server 4173
+
+# or with VS Code: right-click index.html → "Open with Live Server"
 ```
 
-Requires Node 18+.
+Then visit http://localhost:4173.
 
-## Deploy
+There is **nothing to install**. No `package.json`, no bundler. The browser loads the modules natively.
 
-Pushes to `main` trigger `.github/workflows/deploy.yml`, which:
+## Editing the menu
 
-1. Builds the Vite app
-2. Uploads `dist/` as a Pages artifact
-3. Deploys it via `actions/deploy-pages`
+All items live in `js/menu-data.js`. Each section has `id`, `label`, `icon`, `sub`, and an `items` array.
 
-Site URL: `https://<user>.github.io/red-boi/`
+- Add a price/badge/description by editing the item entry.
+- Add a whole section by appending a `{ id, label, icon, sub, items }` block.
+- If the new section should render as a one-line compact list (like *Cervejas*, *Doses*), add its `id` to `COMPACT_IDS` in the same file. Otherwise it renders as a full card.
 
-The Vite `base` is set to `/red-boi/` to match the GitHub Pages project path.
+## Editing styles
 
-## Structure
+CSS is split by concern under `css/`:
+
+- `reset.css` — minimal browser reset.
+- `tokens.css` — 40 CSS custom properties per theme, in `:root[data-theme="dark"|"light"]`.
+- `layout.css` — `.app`, `.header`, `.nav-strip`, `.section`, `.footer`, spinner.
+- `components.css` — `.card`, `.compact-row`, `.badge*`, `.pill`, `.suggestion-form`, chips, variants.
+- `animations.css` — keyframes + `prefers-reduced-motion` overrides.
+
+To tweak the palette, change values in `tokens.css`. Never set colors inline in JS.
+
+## Project structure
 
 ```
-src/
-  main.jsx               ReactDOM bootstrap, SW registration
-  App.jsx                Top-level layout
-  data/menu.js           SECTIONS — full menu data
-  data/constants.js      RED, RED_DK, GOLD, COMPACT_IDS, fmt()
-  theme/themes.js        Dark + light CSS variable tokens
-  hooks/useTheme.js      dark / light / system cycle
-  hooks/useActiveSection.js  Scroll spy + nav auto-center
-  components/            Header, NavPills, Section, FullCard,
-                         CompactRow, Badge, SuggestionForm, Footer
-  styles/global.css      Keyframes, .pill, .theme-btn, scrollbar, reset
-
-public/
-  logo.png               App icon + header/footer logo
-  manifest.webmanifest   PWA manifest
-  sw.js                  Cache-first service worker
-  .nojekyll              Tells Pages not to run Jekyll
-  404.html               SPA fallback
+index.html              entry, includes critical CSS + anti-FOUC theme script
+css/                    5 stylesheets loaded in parallel
+js/
+  main.js               orchestrator
+  menu-data.js          SECTIONS, COMPACT_IDS, formatPrice
+  constants.js          timing constants, color literals
+  dom.js                el(), clearChildren(), on()
+  components/           pure render functions returning HTMLElement
+  features/             theme.js, scroll-spy.js, sw-register.js
+logo.png                ~56 KB, optimised
+manifest.webmanifest    PWA manifest
+sw.js                   cache-first service worker (VERSION = redboi-v3)
+404.html                GitHub Pages fallback → redirects to `/`
+robots.txt, sitemap.xml, llms.txt   SEO + AI crawlability
 ```
+
+## Deploy (GitHub Pages)
+
+1. Settings → Pages.
+2. Source: **Deploy from a branch**.
+3. Branch: `main`, folder `/ (root)`.
+4. Save. First deploy takes 1–2 minutes.
+
+No GitHub Actions workflow needed — Pages serves the repo root directly.
+
+## AI accessibility
+
+`llms.txt` summarises the menu in a structured form for AI assistants. `robots.txt` and `sitemap.xml` allow crawler indexing.

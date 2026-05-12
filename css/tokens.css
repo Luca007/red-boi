@@ -1,0 +1,88 @@
+/* RedBoi — theme tokens (40 CSS custom properties per theme) */
+
+:root[data-theme="dark"],
+:root {
+  --bg:          #0E0704;
+  --header:      #1C0A04;
+  --nav-pill:    rgba(255,255,255,0.06);
+  --nav-text:    #9A7050;
+  --nav-border:  rgba(240,210,150,0.12);
+  --title:       #F0DFC0;
+  --subtitle:    #8A6040;
+  --tagline:     rgba(240,210,160,0.4);
+  --sec-icon:    rgba(200,40,28,0.14);
+  --sec-bdr:     rgba(180,120,0,0.22);
+  --sec-line-a:  #C8281C;
+  --sec-line-b:  rgba(200,134,10,0.4);
+  --card:        #2A1508;
+  --card-bdr:    rgba(200,134,10,0.22);
+  --card-text:   #F0DFC0;
+  --card-sub:    #A07858;
+  --card-muted:  #7A5840;
+  --chip-bg:     rgba(200,134,10,0.10);
+  --chip-bdr:    rgba(200,134,10,0.25);
+  --chip-text:   #C8A060;
+  --var-bg:      rgba(200,134,10,0.08);
+  --var-bdr:     rgba(200,134,10,0.20);
+  --combo-bg:    rgba(200,134,10,0.07);
+  --combo-bdr:   rgba(200,134,10,0.28);
+  --combo-text:  #9A7050;
+  --combo-gold:  #D49A18;
+  --footer:      #150A04;
+  --foot-text:   #6A4828;
+  --foot-muted:  #3A2010;
+  --sug-bg:      rgba(255,255,255,0.04);
+  --sug-bdr:     rgba(200,134,10,0.28);
+  --sug-text:    #F0DFC0;
+  --sug-ph:      rgba(240,220,160,0.28);
+  --scroll:      #B87A00;
+
+  --card-star-bdr:   rgba(180,120,0,0.5);
+  --card-shadow:     0 2px 12px rgba(0,0,0,0.07);
+  --card-star-shadow: 0 0 0 1px rgba(180,120,0,0.18), 0 6px 20px rgba(180,120,0,0.10);
+  --compact-shadow:  0 2px 10px rgba(0,0,0,0.06);
+  --tag-bg:          rgba(128,80,0,0.10);
+}
+
+:root[data-theme="light"] {
+  --bg:          #F5E8CC;
+  --header:      #F0DDB0;
+  --nav-pill:    rgba(0,0,0,0.05);
+  --nav-text:    #6B4020;
+  --nav-border:  rgba(100,60,20,0.2);
+  --title:       #2A1208;
+  --subtitle:    #6B4020;
+  --tagline:     rgba(60,30,10,0.5);
+  --sec-icon:    rgba(200,40,28,0.08);
+  --sec-bdr:     rgba(150,90,20,0.25);
+  --sec-line-a:  #C8281C;
+  --sec-line-b:  rgba(150,90,20,0.4);
+  --card:        #FFFFFF;
+  --card-bdr:    #D4B870;
+  --card-text:   #1A0D06;
+  --card-sub:    #5A3820;
+  --card-muted:  #8A6040;
+  --chip-bg:     rgba(150,90,20,0.08);
+  --chip-bdr:    rgba(150,90,20,0.25);
+  --chip-text:   #7A5000;
+  --var-bg:      rgba(150,90,20,0.07);
+  --var-bdr:     rgba(150,90,20,0.20);
+  --combo-bg:    rgba(150,90,20,0.07);
+  --combo-bdr:   rgba(150,90,20,0.30);
+  --combo-text:  #6B4020;
+  --combo-gold:  #8A5800;
+  --footer:      #EDD090;
+  --foot-text:   #5A3018;
+  --foot-muted:  #7A4A22;
+  --sug-bg:      rgba(0,0,0,0.04);
+  --sug-bdr:     rgba(150,90,20,0.30);
+  --sug-text:    #2A1208;
+  --sug-ph:      rgba(60,30,10,0.35);
+  --scroll:      #B87A00;
+
+  --card-star-bdr:   rgba(180,120,0,0.5);
+  --card-shadow:     0 2px 12px rgba(0,0,0,0.07);
+  --card-star-shadow: 0 0 0 1px rgba(180,120,0,0.18), 0 6px 20px rgba(180,120,0,0.10);
+  --compact-shadow:  0 2px 10px rgba(0,0,0,0.06);
+  --tag-bg:          rgba(128,80,0,0.10);
+}
