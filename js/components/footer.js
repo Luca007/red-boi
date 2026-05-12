@@ -1,15 +1,13 @@
-/* RedBoi — footer: logo, handle, disclaimer, suggestion form block */
+/* RedBoi — footer: logo, handle, disclaimer, Google review CTA */
 
 import { el } from '../dom.js';
-import { renderSuggestionForm } from './suggestion-form.js';
+import { renderReviewCta } from './review-cta.js';
 
 /**
- * Renders the footer with logo, handle, disclaimer, and suggestion form.
+ * Renders the footer with logo, handle, disclaimer, and review CTA.
  * @returns {HTMLElement}
  */
 export function renderFooter() {
-  const form = renderSuggestionForm();
-
   return el('footer', { className: 'footer' },
     el('div', { className: 'footer__top' },
       el('img', {
@@ -26,13 +24,13 @@ export function renderFooter() {
         'Preços em R$ · Sujeitos a alteração sem aviso prévio')
     ),
     el('div', { className: 'footer__divider', 'aria-hidden': 'true' }),
-    el('div', { className: 'footer__form-block' },
-      el('div', { className: 'footer__form-head' },
-        el('div', { className: 'footer__form-title' }, '💬 Sentiu falta de algum item?'),
-        el('p', { className: 'footer__form-sub' },
-          'Conta pra gente! Toda sugestão é bem-vinda e pode virar o próximo hit da casa.')
+    el('div', { className: 'footer__cta-block' },
+      el('div', { className: 'footer__cta-head' },
+        el('div', { className: 'footer__cta-title' }, '⭐ Gostou do Red Boi?'),
+        el('p', { className: 'footer__cta-sub' },
+          'Compartilhe sua experiência no Google. Sua avaliação ajuda outras pessoas a descobrirem o gastrobar.')
       ),
-      form.element
+      renderReviewCta()
     )
   );
 }

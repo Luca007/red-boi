@@ -1,4 +1,4 @@
-/* RedBoi — card, compact row, badges, pills, suggestion form, chips, variants */
+/* RedBoi — card, compact row, badges, pills, review CTA, chips, variants */
 
 /* ───── CARD ───── */
 .card {
@@ -229,61 +229,46 @@
   box-shadow: 0 4px 14px rgba(200, 40, 28, 0.38);
 }
 
-/* ───── SUGGESTION FORM ───── */
-.suggestion-form__textarea {
+/* ───── REVIEW CTA (Google) ───── */
+.review-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   width: 100%;
-  background: var(--sug-bg);
-  border: 1.5px solid var(--sug-bdr);
+  padding: 14px 18px;
   border-radius: 14px;
-  padding: 13px 15px;
-  color: var(--sug-text);
-  font-size: 14px;
-  font-family: 'DM Sans', sans-serif;
-  resize: none;
-  outline: none;
-  margin-bottom: 12px;
-  line-height: 1.6;
-  transition: border-color 0.2s;
-}
-.suggestion-form__textarea:focus {
-  border-color: rgba(200, 40, 28, 0.55);
-}
-.suggestion-form__submit {
-  width: 100%;
-  background: var(--sug-bg);
-  border: 1.5px solid var(--sug-bdr);
-  color: var(--subtitle);
-  padding: 14px 0;
-  border-radius: 14px;
+  background: linear-gradient(135deg, #C8281C, #8A1A10);
+  color: #fff;
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
   font-size: 15px;
   letter-spacing: 0.3px;
-  transition: all 0.25s;
-}
-.suggestion-form__submit--ready {
-  background: linear-gradient(135deg, #C8281C, #8A1A10);
-  border: none;
-  color: #fff;
+  text-decoration: none;
   box-shadow: 0 4px 18px rgba(200, 40, 28, 0.3);
+  transition: transform 0.18s ease, box-shadow 0.25s ease;
 }
-.suggestion-form__thanks {
-  text-align: center;
-  padding: 24px 0;
+.review-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(200, 40, 28, 0.42);
 }
-.suggestion-form__thanks-emoji {
-  font-size: 40px;
-  margin-bottom: 10px;
+.review-cta:active {
+  transform: translateY(0);
 }
-.suggestion-form__thanks-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  color: var(--title);
-  font-weight: 700;
-  margin-bottom: 6px;
+.review-cta:focus-visible {
+  outline: 2px solid var(--combo-gold);
+  outline-offset: 3px;
 }
-.suggestion-form__thanks-sub {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  color: var(--subtitle);
+.review-cta__stars {
+  color: #FFD66B;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(255, 200, 80, 0.4);
+}
+.review-cta__label {
+  white-space: nowrap;
+}
+.review-cta__arrow {
+  font-size: 14px;
+  opacity: 0.85;
 }

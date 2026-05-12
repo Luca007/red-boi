@@ -1,5 +1,5 @@
 /* RedBoi — cache-first service worker (app shell + runtime cache) */
-const VERSION = 'redboi-v3';
+const VERSION = 'redboi-v4';
 const BASE = new URL('./', self.location).pathname;
 const APP_SHELL = [
   BASE,
@@ -21,7 +21,7 @@ const APP_SHELL = [
   BASE + 'js/components/full-card.js',
   BASE + 'js/components/compact-row.js',
   BASE + 'js/components/badge.js',
-  BASE + 'js/components/suggestion-form.js',
+  BASE + 'js/components/review-cta.js',
   BASE + 'js/components/footer.js',
   BASE + 'js/components/spinner.js',
   BASE + 'js/features/theme.js',
